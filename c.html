@@ -62,12 +62,12 @@ $(document).ready(function() {
 	var validPassport = 0
 
 	// Regex
-	var regex4digits = new RegExp("([0-9]{4})$")
-	var regexHeight = new RegExp("([0-9][A-Za-z]{2})$")
-	var regexHexaColor = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$")
-	var regexLeadingZeros = new RegExp(/[0-9]{4,100}$/);
+	var regex4digits = new RegExp("^([0-9]{4})$")
+	var regexHeight = new RegExp("^([0-9]+[A-Za-z]{2})$")
+	var regexHexaColor = new RegExp("^#([A-Fa-f0-9]{6})$")
+	var regexLeadingZeros = new RegExp(/^[0-9]{9}$/);
 
-	
+
 	$("p").each(function() {
 		passeportID = passeportID + 1
 		var passport = {byr: "", iyr: "", eyr: "", hgt: "", hcl: "", ecl: "", pid: "", cid:""};
@@ -116,8 +116,9 @@ $(document).ready(function() {
 			}
 
 			// verif HGT 
-			if ((regexHeight.test(passport.hgt) && passport.hgt.indexOf("in") != -1 & parseInt(passport.hgt) >= 59 && parseInt(passport.hgt) <=76) ||
-				(regexHeight.test(passport.hgt) && passport.hgt.indexOf("cm") != -1 & parseInt(passport.hgt) >= 150 && parseInt(passport.hgt) <=193)) {
+			// verif HGT
+			if ((regexHeight.test(passport.hgt) && passport.hgt.indexOf("in") != -1 && parseInt(passport.hgt) >= 59 && parseInt(passport.hgt) <=76) ||
+				(regexHeight.test(passport.hgt) && passport.hgt.indexOf("cm") != -1 && parseInt(passport.hgt) >= 150 && parseInt(passport.hgt) <=193)) {
 				checkedData = checkedData + 1
 			}
 			else {				
