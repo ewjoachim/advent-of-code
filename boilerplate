@@ -1,3 +1,0 @@
-import collections, math
-import boilerplate
-inp = boilerplate.get_input_lines(n)
