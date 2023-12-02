@@ -1,4 +1,8 @@
 import requests, browsercookie
 
+
 def get_input_lines(year, day):
-    return requests.get(f"https://adventofcode.com/{year}/day/{day}/input", cookies=browsercookie.firefox()).text
+    return requests.get(
+        f"https://adventofcode.com/{year}/day/{day}/input",
+        cookies=browsercookie.firefox(),
+    ).text
